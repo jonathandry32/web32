@@ -148,4 +148,53 @@ class Objet_modal extends CI_Model{
 		$sql=sprintf($sentence,$b[1],$b[0],$a[1],$a[0]);
 		$this->db->query($sql);
 	}
+	function change_m($offre,$id){
+		$query=	$this->db->query(sprintf("select * from objet where idobjet=%s",$offre));
+		$results = $query->Result();
+		$a=array();
+		foreach ($results as $result) {
+			$a[] = $result->idobjet;
+			$a[] = $result->proprietaire;
+		}
+		$sentence="insert into multiple(acheteur,vendeur,recu) values(%s,%s,%s)";
+		$sql=sprintf($sentence,$this->session->connected,$a[0],$a[1]);
+		$this->db->query($sql);
+		$query=	$this->db->query(sprintf("select idmultiple from multiple where acheteur=%s and vendeur=%s and recu=%s",$this->session->connected,$a[1],$a[0]));
+		$results = $query->Result();
+		$mul=null;
+		foreach ($results as $result) {
+			$mul = $result->idmultiple;
+		}
+		for ($i=0; $i < count($id); $i++) { 
+			$this->db->query(sprintf("insert into detail_multiple(idmultiple,donne) values(%s,%s)",$mul,$id[$i]));
+		}
+	}
+
+	function get_estimation($idobjet,$value){
+		$obj_id=$this->get_objet_by_id($idobjet);
+		$min=($obj_id[4]*(100-$value))/100;
+		$max=($obj_id[4]*(100+$value))/100;
+		$me=$this->session->connected;
+		$query=	$this->db->query(sprintf("select objet.idobjet id,categorie.name namecat,objet.name nameobj,membre.name namembr,objet.prix pr,objet.description descri from objet join membre on objet.proprietaire=membre.idmembre join categorie on objet.idcategorie=categorie.idcategorie where objet.prix>%s and objet.prix<%s and objet.proprietaire!=%s",$min,$max,$me));
+			$results = $query->Result();
+			
+		$list=array();
+		foreach ($results as $result) {
+			$list[] = $result->id;
+			$list[] = $result->namecat;
+			$list[] = $result->nameobj;
+			$list[] = $result->namembr;
+			$list[] = $result->pr;
+			$list[] = $result->descri;
+
+	        $quer= $this->db->query(sprintf("select * from picture where idobjet=%s",$result->id));
+	        $resul = $quer->Result();
+	        $pic=NULL;
+	        foreach ($resul as $resu) {
+	            $pic = $resu->name;
+	        }
+			$list[] = $pic;
+		}
+		return $list;
+	}
 }

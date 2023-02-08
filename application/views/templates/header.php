@@ -130,12 +130,22 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link collapsed"  href=<?php echo base_url("objet/all"); ?>>
-                        <i class="bi bi-question-circle"></i><span>Edit/Delete Object</span>
+                        <i class="bi bi-question-circle"></i><span>Edit/Delete mes objects</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link collapsed"  href=<?php echo base_url("Stat/historic"); ?>>
                         <i class="bi bi-tools"></i><span>Historic</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed"  href=<?php echo base_url("objet/my_all"); ?>>
+                        <i class="bi bi-tools"></i><span>Estimation</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed"  href=<?php echo base_url("welcome/multiple"); ?>>
+                        <i class="bi bi-tools"></i><span> Multiple </span>
                     </a>
                 </li>
                 <!-- End Components Nav -->

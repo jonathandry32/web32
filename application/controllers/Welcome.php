@@ -29,6 +29,13 @@ class Welcome extends CI_Controller {
 		$this->load->model('cat');
 		$data['list_cat']=$this->cat->get_all_cat();
         $this->load->view('template',$data); 
+	}
+	public function multiple(){
+        $data['title'] = 'Takalo-Takalo';
+        $data['description'] = 'Site d echange en ligne ';
+        $data['keywords'] = 'Takalo-takalo';
+        $data['contents'] = 'multiple';
+        $this->load->view('template',$data); 
 	}	
 	public function search(){
         $data['title'] = 'Takalo-Takalo';

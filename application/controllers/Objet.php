@@ -57,6 +57,33 @@ class Objet extends CI_Controller {
         $this->load->view('template',$data); 
 	}
 
+	public function estimation($valeur,$prix=0){
+        $data['title'] = 'Takalo-Takalo';
+        $data['description'] = 'Site d echange en ligne ';
+        $data['keywords'] = 'Takalo-takalo';
+        $data['contents'] = 'list_estim';  
+		$this->load->model('objet_modal');
+		$v=$this->input->post($valeur);
+		$data['list_objet']=$this->objet_modal->get_estimation($v,$valeur);
+		$me=$this->session->connected; 
+		$data['list_my_objet']=$this->objet_modal->get_my_objet($me);  
+		$this->load->model('cat');
+		$data['list_cat']=$this->cat->get_all_cat();
+		$data['pri']=$prix;
+        $this->load->view('template',$data); 
+	}
+	public function my_all(){
+        $data['title'] = 'Takalo-Takalo';
+        $data['description'] = 'Site d echange en ligne ';
+        $data['keywords'] = 'Takalo-takalo';
+        $data['contents'] = 'estimation';  
+		$this->load->model('objet_modal');
+		$data['list_objet']=$this->objet_modal->get_my_objet($this->session->connected);
+		$this->load->model('cat');
+		$data['list_cat']=$this->cat->get_all_cat();
+        $this->load->view('template',$data); 
+	}
+
 	public function all_admin(){
         $data['title'] = 'Takalo-Takalo';
         $data['description'] = 'Site d echange en ligne ';
@@ -101,6 +128,13 @@ class Objet extends CI_Controller {
 		$id=$this->input->post("mon");
 		$this->load->model('objet_modal');
 		$this->objet_modal->change($offre,$id);
+		redirect('welcome/accueil');
+	}
+	public function echange_m(){  
+		$offre=$this->input->post("son");
+		$id=explode(',',$this->input->post("mon"));
+		$this->load->model('objet_modal');
+		$this->objet_modal->change_m($offre,$id);
 		redirect('welcome/accueil');
 	}
 }

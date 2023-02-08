@@ -8,7 +8,7 @@ class Pic extends CI_Model{
         {
             $taille_maxi = 2000000;
             $taille = filesize($_FILES['avatar']['tmp_name']);
-            $dossier = '../assest/image/';
+            $dossier = '../assest/img/';
             $fichier = basename($_FILES['avatar']['name']);
             $extensions = array('.png', '.gif', '.jpg', '.jpeg');
             $extension = strrchr($_FILES['avatar']['name'], '.');
@@ -47,9 +47,5 @@ class Pic extends CI_Model{
 		$sentence="insert into picture(idobjet,name) values(%s,'%s')";
 		$sql=sprintf($sentence,$idobject,$file_name);
 		$this->db->query($sql);
-    	upload();
-        if(isset($_FILES['avatar'])){
-            sending_pic(fichier(),$_SESSION['id']);
-        }
 	}	
 }
