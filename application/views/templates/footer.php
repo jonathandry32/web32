@@ -4,9 +4,11 @@
         &copy; Copyright
     </div>
     <div class="credits">
-        <strong><span> RANDRIANALY Andry Jonathan ETU002040 </span></strong>
-        <strong><span>  </span></strong>
- 		<strong><span>  </span></strong>
+        <strong> RANDRIANALY Andry Jonathan ETU002040 </strong>
+        </br>
+        <strong> RAVELOJAONA Toky Niaina Finaritra ETU002063 </strong>
+        </br>
+ 		<strong> Gladys ETU1548 </strong>
     </div>
 </footer><!-- End Footer -->
 

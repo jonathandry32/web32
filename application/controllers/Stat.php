@@ -37,7 +37,7 @@ class Stat extends CI_Controller {
         $data['contents'] = 'historic';
 		$this->load->model('history');
 		$this->load->model('cat');
-		$data['list_cat']=$this->cat->get_all_cat();
+		$data['list_cat']=$this->cat->get_all_cat();	
 		$data['list_historic']=$this->history->get_historic();
         $this->load->view('template',$data);
 	}	

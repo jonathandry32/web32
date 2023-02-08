@@ -130,28 +130,32 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link collapsed"  href=<?php echo base_url("objet/all"); ?>>
-                        <i class="bi bi-nut-fill"></i><span>Edit/Delete Object</span>
+                        <i class="bi bi-question-circle"></i><span>Edit/Delete Object</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link collapsed"  href=<?php echo base_url("Stat/historic"); ?>>
-                        <i class="bi bi-nut-fill"></i><span>Historic</span>
+                        <i class="bi bi-tools"></i><span>Historic</span>
                     </a>
                 </li>
                 <!-- End Components Nav -->
                 
                 <li class="nav-heading">Admin</li>
                 
-                <li class="nav-item">
-                    <a class="nav-link collapsed"  href=<?php echo base_url("categorie/index"); ?>>
-                        <i class="bi bi-nut-fill"></i><span>Categories</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link collapsed"  href=<?php echo base_url("stat/accueil"); ?>>
-                        <i class="bi bi-nut-fill"></i><span>Statistiques</span>
-                    </a>
-                </li>
+                <?php if($this->session->has_userdata('admin')){ ?>
+                   <h3 style="color:red"> <?php echo $this->session->admin; ?> </h3>
+                <?php } else { ?>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed"  href=<?php echo base_url("categorie/index"); ?>>
+                            <i class="bi bi-piggy-bank"></i><span>Categories</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed"  href=<?php echo base_url("stat/accueil"); ?>>
+                            <i class="bi bi-people"></i><span>Statistiques</span>
+                        </a>
+                    </li>
+                <?php } ?>
             </ul>
 
         </aside><!-- End Sidebar-->

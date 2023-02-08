@@ -12,6 +12,9 @@ class Membre extends CI_Model{
 			$user_valid=true;
 			$this->session->unset_userdata('error_login');
 			$this->session->set_userdata('connected',$result->idmembre);
+			if ($result->idmembre!=1) {
+				$this->session->set_userdata('admin','Acces Refuser');
+			}
 			return true;
 		}
 		if ($user_valid==false) {

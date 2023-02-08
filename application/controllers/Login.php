@@ -22,7 +22,6 @@ class Login extends CI_Controller {
 		}
 	}
 
-
 	public function sign(){
         $data['title'] = 'Takalo-Takalo';
         $data['description'] = 'Site d echange en ligne ';
@@ -42,6 +41,8 @@ class Login extends CI_Controller {
 
 	public function logout(){
 		$this->session->unset_userdata('connected');
+		$this->session->unset_userdata('admin');
+		$this->session->unset_userdata('error_login');
 		redirect('login');
 	}
 }
