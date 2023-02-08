@@ -125,7 +125,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link collapsed"  href=<?php echo base_url("objet/add"); ?>>
-                        <i class="bi bi-nut-fill"></i><span>Add Object</span>
+                        <i class="bi bi-piggy-bank"></i><span>Add Object</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -140,12 +140,12 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link collapsed"  href=<?php echo base_url("objet/my_all"); ?>>
-                        <i class="bi bi-tools"></i><span>Estimation</span>
+                        <i class="bi bi-people"></i><span>Estimation</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link collapsed"  href=<?php echo base_url("welcome/multiple"); ?>>
-                        <i class="bi bi-tools"></i><span> Multiple </span>
+                        <i class="bi bi-award"></i><span> Multiple </span>
                     </a>
                 </li>
                 <!-- End Components Nav -->
@@ -157,12 +157,12 @@
                 <?php } else { ?>
                     <li class="nav-item">
                         <a class="nav-link collapsed"  href=<?php echo base_url("categorie/index"); ?>>
-                            <i class="bi bi-piggy-bank"></i><span>Categories</span>
+                            <i class="bi bi-nut-fill"></i><span>Categories</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link collapsed"  href=<?php echo base_url("stat/accueil"); ?>>
-                            <i class="bi bi-people"></i><span>Statistiques</span>
+                            <i class="bi bi-nut-fill"></i><span>Statistiques</span>
                         </a>
                     </li>
                 <?php } ?>

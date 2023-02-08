@@ -20,7 +20,7 @@ class Objet_modal extends CI_Model{
 	}
 
 	function get_all_objet(){
-		$query=	$this->db->query("select objet.idobjet id,categorie.name namecat,objet.name nameobj,membre.name namembr,objet.prix pr ,objet.description descri from objet join membre on objet.proprietaire=membre.idmembre join categorie on objet.idcategorie=categorie.idcategorie");
+		$query=	$this->db->query("select objet.idobjet id,categorie.name namecat,objet.name nameobj,membre.name namembr,objet.prix pr ,objet.description descri from objet join membre on objet.proprietaire=membre.idmembre join categorie on objet.idcategorie=categorie.idcategorie order by id");
 		$results = $query->Result();
 		$list=array();
 		foreach ($results as $result) {

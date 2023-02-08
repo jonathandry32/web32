@@ -22,5 +22,36 @@
                   		</div>
 					</form>
     		</section>
+
+    		<div class="row justify-content-center" style="background-color:whitesmoke;border-color:whitesmoke ">
+				<div class="col-lg-8" style="margin-top: 100px;">
+					<div class="card mb-3">
+						<div class="card-body">
+                            <table class="table">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Categorie</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Proprietaire</th>
+                                    <th>Prix</th>
+                                </tr>
+                                <?php for ($i=0; $i < count($list_objet); $i+=6) { ?>
+                                <tr>
+                                    <td> <?php echo $list_objet[$i]; ?> </td>
+                                    <td> <?php echo $list_objet[$i+1]; ?> </td>
+                                    <td> <?php echo $list_objet[$i+2]; ?> </td>
+                                    <td> <?php echo $list_objet[$i+5]; ?> </td>
+                                    <td> <?php echo $list_objet[$i+3]; ?> </td>
+                                    <td> <?php echo $list_objet[$i+4]; ?> </td>
+                                   
+                                </tr>
+                            <?php } ?>
+                            </table>
+                                  </br>
+						</div>
+					</div> 
+				</div>
+
 		</div>
   </main><!-- End #main -->

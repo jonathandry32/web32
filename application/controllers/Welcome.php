@@ -35,6 +35,8 @@ class Welcome extends CI_Controller {
         $data['description'] = 'Site d echange en ligne ';
         $data['keywords'] = 'Takalo-takalo';
         $data['contents'] = 'multiple';
+		$this->load->model('objet_modal');
+		$data['list_objet']=$this->objet_modal->get_all_objet();
         $this->load->view('template',$data); 
 	}	
 	public function search(){
